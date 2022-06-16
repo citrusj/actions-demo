@@ -1,0 +1,14 @@
+on: 
+  pull_request:
+  
+jobs:
+  pr-title-with-issue-number:
+    runs-on: ubuntu-latest
+    name: A job to set PR title
+    steps:
+      - name: change pr title
+        uses: citrusj/pr-title-with-issue-number-action@v2.7
+        with:
+          who-to-greet: 'Mona the Octocat'
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          pr-title: "${{ github.event.pull_request.title }}"
